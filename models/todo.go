@@ -45,12 +45,15 @@ func (t *Todo) Validate(tx *pop.Connection) (*validate.Errors, error) {
 
 // ValidateCreate gets run every time you call "pop.ValidateAndCreate" method.
 // This method is not required and may be deleted.
-func (t *Todo) ValidateCreate(tx *pop.Connection) (*validate.Errors, error) {
-	return validate.NewErrors(), nil
-}
+// func (t *Todo) ValidateCreate(tx *pop.Connection) (*validate.Errors, error) {
+// 	return validate.Validate(
+// 		&validators.StringIsPresent{Field: t.Title, Name: "Title"},
+// 		&validators.StringIsPresent{Field: t.Description, Name: "Description"},
+// 	), nil
+// }
 
 // ValidateUpdate gets run every time you call "pop.ValidateAndUpdate" method.
 // This method is not required and may be deleted.
-func (t *Todo) ValidateUpdate(tx *pop.Connection) (*validate.Errors, error) {
-	return validate.NewErrors(), nil
-}
+// func (t *Todo) ValidateUpdate(tx *pop.Connection) (*validate.Errors, error) {
+// 	return validate.NewErrors(), nil
+// }
