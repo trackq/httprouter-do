@@ -1,0 +1,12 @@
+---
+development:
+  dialect: "sqlite3"
+  database: /Users/kaweh/Labs/playground/httprouter-do_httprouter-do_development.sqlite
+
+test:
+  dialect: "sqlite3"
+  database: /Users/kaweh/Labs/playground/httprouter-do_httprouter-do_test.sqlite
+
+production:
+  dialect: "sqlite3"
+  database: /Users/kaweh/Labs/playground/httprouter-do_httprouter-do_production.sqlite
