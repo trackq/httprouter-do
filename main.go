@@ -27,17 +27,20 @@ func main() {
 }
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	db, _ := pop.Connect("development")
-	todoes := []models.Todo{}
+	db, err := pop.Connect("development")
+	ifError(err)
 
-	err := db.Order("created_at desc").All(&todoes)
+	todoes := []models.Todo{}
+	err = db.Order("created_at desc").All(&todoes)
 	ifError(err)
 
 	json.NewEncoder(w).Encode(todoes)
 }
 
 func Create(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	db, _ := pop.Connect("development")
+	db, err := pop.Connect("development")
+	ifError(err)
+
 	todo := &models.Todo{}
 
 	DecodeJSONBody(w, r, todo)
